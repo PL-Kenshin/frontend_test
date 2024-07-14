@@ -1,0 +1,165 @@
+@import './colors.scss';
+
+.footer {
+  background-color: $footerColor;
+  padding: 0.625rem 1.25rem; 
+  display: flex;
+  width: 100%;
+  position: relative;
+  margin-top: auto;
+}
+
+.content {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.left {
+  display: flex;
+  align-items: center;
+  color: $white;
+  margin-bottom: 0.625rem; 
+  flex: 1;
+}
+
+.logo {
+  position: relative;
+  color: $midGray;
+  user-select: none;
+}
+
+.logo:hover {
+  color: $white;
+}
+
+.box {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  font-size: 1.5rem; 
+  border: 0.125rem solid $darkGray; 
+  padding: 0 0.1875rem; 
+  width: 80%;
+  color: $midGray;
+  transition: transform 0.3s ease;
+}
+
+.logo:hover .box {
+  border: 0.125rem solid $orange; 
+  transform: rotate(90deg);
+}
+
+.right .button {
+  color: $midGray;
+  border: 0.0625rem solid $midGray; 
+  padding: 0.625rem 1.25rem; 
+  cursor: pointer;
+  background-color: $footerColor;
+}
+
+.right .button:hover {
+  color: $white;
+  border: 0.0625rem solid $white; 
+}
+
+.center {
+  text-align: center;
+  flex: 1;
+  user-select: none;
+}
+
+.center > span {
+  position: relative;
+  display: inline-block;
+  color: $darkGray;
+}
+
+.center > span:before,
+.center > span:after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  border-bottom: 0.0625rem solid $darkGray; 
+  width: 1.875rem; 
+  margin: 0 1.25rem; 
+}
+
+.center > span:before {
+  right: 70%;
+}
+
+.center > span:after {
+  left: 70%;
+}
+
+.popup {
+  position: relative;
+  display: flex;
+  flex: 1;
+  justify-content: flex-end;
+}
+
+.popupInput {
+  display: none;
+}
+
+.popupToggle {
+  color: $midGray;
+  border: 0.125rem solid $midGray; 
+  padding: 0.625rem 1.25rem; 
+  cursor: pointer;
+  border-radius: 0.3125rem; 
+  transition: background-color 0.3s, color 0.3s;
+  width: 13rem;
+  text-align: center;
+  user-select: none;
+}
+
+.popupToggle:hover {
+  color: $white;
+  border: 0.125rem solid $white; 
+}
+
+.popupContent {
+  display: none;
+  position: absolute;
+  bottom: 150%;
+  right: 0;
+  background-color: $white;
+  color: $black;
+  padding: 0.625rem; 
+  box-shadow: 0px 0px 25px 0px $black;
+  z-index: 1;
+  width: 13rem;
+  border-radius: 0.1875rem; 
+}
+
+.popupInput:checked + .popupToggle + .popupContent {
+  display: block;
+}
+
+.popupContent button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: $black;
+  padding: 0.3125rem 0; 
+  text-align: left;
+  width: 100%;
+}
+
+.popupContent button:hover {
+  color: $orange;
+}
+
+/* Media queries for mobile responsiveness */
+@media (max-width: 48em) { 
+  .center {
+    display: none;
+  }
+}

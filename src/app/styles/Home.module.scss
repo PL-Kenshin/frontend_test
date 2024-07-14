@@ -1,0 +1,139 @@
+@import './colors.scss';
+
+.main {
+  flex: 1;
+  text-align: center;
+  color: $white;
+}
+
+.blocks {
+  display: flex;
+  margin-top: 1.25rem;
+  padding: 0 3rem;
+}
+
+.block {
+  flex: 1;
+  min-width: 0;
+}
+
+.block h2 {
+  margin-bottom: 1.25rem;
+}
+
+.block.center h3 {
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.block.center p {
+  color: $textColor;
+}
+
+.radioGroup {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.radioGroup label {
+  margin: 0.3125rem 0;
+}
+
+.customRadio {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  margin-bottom: 0.625rem;
+
+  input[type="radio"] {
+    display: none;
+  }
+
+  .radioBtn {
+    width: 1.5rem;
+    height: 1.5rem;
+    border: 0.2rem solid $white;
+    border-radius: 50%;
+    margin-right: 0.625rem;
+    position: relative;
+    transition: background-color 0.2s;
+
+    &::after {
+      content: "";
+      width: 0.6rem;
+      height: 0.6rem;
+      background-color: $white;
+      border-radius: 50%;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      opacity: 0;
+      transition: opacity 0.2s;
+    }
+  }
+
+  input[type="radio"]:checked + .radioBtn {
+    border-color: $white;
+
+    &::after {
+      opacity: 1;
+    }
+  }
+}
+
+.primaryButton,
+.secondaryButton {
+  background-color: transparent;
+  color: $textColor;
+  font-weight: bolder;
+  border: 1px solid;
+  padding: 0.625rem 1.25rem;
+  cursor: pointer;
+  margin-right: 0.625rem;
+  border-radius: 0.1875rem;
+  transition: background-color 0.3s, color 0.3s;
+  border-color: $white;
+}
+
+.primaryButton:hover,
+.secondaryButton:hover {
+  background: linear-gradient(to right, $orangeDark, $orange);
+  color: $white;
+}
+
+@media (max-width: 48em) {
+  .blocks {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding: 0 1rem;
+  }
+
+  .block {
+    padding: 0.625rem;
+  }
+
+  .block.center {
+    grid-column: span 2;
+  }
+
+  .block.center p {
+    text-align: center;
+  }
+
+  .blocks > *:nth-child(1) {
+    text-align: left;
+  }
+
+  .blocks > *:nth-child(2) {
+    text-align: right;
+  }
+
+  .primaryButton,
+  .secondaryButton {
+    width: 100%;
+    margin: 0.3125rem 0;
+  }
+}

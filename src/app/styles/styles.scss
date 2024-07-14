@@ -1,0 +1,41 @@
+@import './colors.scss';
+
+body {
+    margin: 0;
+    background-color: $backgroundColor;
+    color: $white;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+h1 {
+    font-weight: normal;
+    padding-bottom: 0.625rem; 
+    display: inline-block;
+    position: relative;
+}
+
+h1:before {
+    content: "";
+    position: absolute;
+    width: 80%;
+    height: 1px;
+    bottom: 0;
+    left: 10%;
+    border-bottom: 1px solid $white;
+}
+
+h3 {
+    padding-top: 3vh;
+    padding-bottom: 3vh;
+}
